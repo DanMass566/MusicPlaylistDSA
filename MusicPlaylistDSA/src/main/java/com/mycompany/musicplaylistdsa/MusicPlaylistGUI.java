@@ -3,18 +3,56 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.musicplaylistdsa;
-
+import java.util.Queue;
+import java.util.Stack:
+import java.util.LinkedList;
 /**
  *
  * @author danma
  */
 public class MusicPlaylistGUI extends javax.swing.JFrame {
-
+    /*Stacks for users playlists*/
+    private Stack<String> Liked;
+    private Stack<String> HeavyMetal;
+    private Stack<String> SongsYouMightLike;
+    
+    private enum Playlists {LIKED, HEAVYMETAL, SONGSYOUMIGHTLIKE}
+    
+    /*Getters for the playlists*/
+    public Stack<String> getLiked() {
+        return Liked;
+    }
+    
+    public Stack<String> getHeavyMetal() {
+        return HeavyMetal;
+    }
+    
+    public Stack<String> getSongaYouMightLike() {
+        return SongsYouMightLike;
+    }
+    
+    /*holds and adds songs inside of a playlist*/
+    private Queue<String> playlistQueue = new LinkedList<>();
+    
+    private void addToPlaylistQueue(String songName) {
+        playlistQueue.add(songName);
+    }
+    
+    /*adds songs to the playlist queue from a chosen stack*/
+     private void addToPlaylistQueue(Stack<String> songStack) {
+        while (!songStack.isEmpty()){
+            String songName = songStack.Liked();
+            playlistQueue.add(songName);
+        }
+     }
     /**
      * Creates new form MusicPlaylistGUI
      */
     public MusicPlaylistGUI() {
         initComponents();
+        Liked = new Stack<>();
+        HeavyMetal = new Stack<>();
+        SongsYouMightLike = new Stack<>();
     }
 
     /**
